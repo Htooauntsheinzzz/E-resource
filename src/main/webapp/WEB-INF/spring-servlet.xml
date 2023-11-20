@@ -26,9 +26,9 @@
 	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
 		
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/spring_crud?serverTimezone=UTC"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/database?serverTimezone=UTC"/>
 		<property name="username" value="root"/>
-		<property name="password" value="root"/>
+		<property name="password" value="mysql1234"/>
 		
 		
 		<property name="connectionProperties">
@@ -45,6 +45,23 @@
 
 	<bean id="itemDao" class="dao.ItemDao">
 		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="biblioDao" class="dao.BiblioDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="collectionDao" class="dao.CollectionDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="BookDao" class="dao.BookDao">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<bean id="xmlDao" class="dao.XmlDaoTest">
+		<property name="template" ref="jt"></property>
+	</bean>
+	<!-- for upload excel file -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="-1" />
 	</bean>
 	
 </beans>

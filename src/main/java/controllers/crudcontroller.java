@@ -21,14 +21,14 @@ public class crudcontroller {
 
 	@Autowired
 	ItemDao dao;
-
-	@GetMapping("/")
-	public String showform(Model m, HttpServletRequest req, HttpServletResponse res) {
-		List<user> list = dao.getUsers();
-		m.addAttribute("list", list);
-		return "userlist";
-	}
-
+	
+	  @GetMapping("/user")
+	  public String showform(Model m, HttpServletRequest req,HttpServletResponse res) { 
+	  List<user> list = dao.getUsers();
+	  m.addAttribute("list", list);
+	  return "userlist"; 
+	  }
+	
 	@GetMapping("/userform/create")
 	public String createuser(Model m, HttpServletRequest req, HttpServletResponse res) {
 		m.addAttribute("command", new user());
